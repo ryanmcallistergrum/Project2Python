@@ -106,7 +106,7 @@ class QueryLoader:
         return modified.sort(f.col("Population").desc_nulls_last()).filter(f.col("sum(Deaths)").isNotNull())
 
     def question09(self) -> DataFrame:
-        death_capita = self.death_join_pop.withColumn("deaths_per_capita", ("sum(Deaths)" / f.col("Population"))
+        death_capita = self.death_join_pop.withColumn("deaths_per_capita", (f.col("sum(Deaths)") / f.col("Population"))
                                                       .cast(DecimalType(10, 10)))
         return death_capita.sort(f.col("deaths_per_capita").desc_nulls_last())
 
