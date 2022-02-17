@@ -1,0 +1,1483 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%pyspark\nsc.addPyFile(\"hdfs://localhost:9000/project2/QueryLoader.py\")\nfrom QueryLoader import QueryLoader as Ql\nql = Ql()\nql.question01().createOrReplaceTempView(\"question01\")\nql.question02().createOrReplaceTempView(\"question02\")\nql.question03().createOrReplaceTempView(\"question03\")\nql.question04().createOrReplaceTempView(\"question04\")\nql.question05().createOrReplaceTempView(\"question05\")\nql.question06().createOrReplaceTempView(\"question06\")\nql.question07().createOrReplaceTempView(\"question07\")\nql.question08().createOrReplaceTempView(\"question08\")\nql.question09().createOrReplaceTempView(\"question09\")\nql.question10().createOrReplaceTempView(\"question10\")\nql.question11().createOrReplaceTempView(\"question11\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:11:05-0600",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Correlation Value: 0.729286451542502\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=0",
+              "$$hashKey": "object:84907"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=1",
+              "$$hashKey": "object:84908"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=2",
+              "$$hashKey": "object:84909"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=3",
+              "$$hashKey": "object:84910"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=6",
+              "$$hashKey": "object:84911"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645110684858_1287056635",
+      "id": "paragraph_1645024341804_465822838",
+      "dateCreated": "2022-02-17T09:11:24-0600",
+      "dateStarted": "2022-02-17T16:11:05-0600",
+      "dateFinished": "2022-02-17T16:11:38-0600",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:82163"
+    },
+    {
+      "title": "Q1: When Was the Peak Moment of the Pandemic (Mortality Rate)?",
+      "text": "%sql\nselect * from question01;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:03:56-0600",
+      "progress": 36,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Date": "string",
+                      "Mortality Rate": "string",
+                      "Spread Rate": "string",
+                      "Difference": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Date",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Mortality Rate",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Date\tMortality Rate\tSpread Rate\tDifference\n2020-01\t0.021\t0.0\t9925\n2020-02\t0.034\t7.666\t76087\n2020-03\t0.049\t8.969\t771462\n2020-04\t0.072\t2.801\t2401726\n2020-05\t0.06\t0.893\t2910560\n2020-06\t0.049\t0.7\t4319841\n2020-07\t0.039\t0.68\t7127802\n2020-08\t0.033\t0.449\t7909776\n2020-09\t0.03\t0.333\t8504759\n2020-10\t0.026\t0.357\t12137191\n2020-11\t0.023\t0.373\t17241431\n2020-12\t0.022\t0.318\t20148841\n2021-01\t0.022\t0.233\t19467762\n2021-02\t0.022\t0.108\t11152382\n2021-03\t0.022\t0.129\t14717951\n2021-04\t0.021\t0.175\t22500422\n2021-05\t0.021\t0.123\t18552026\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=19",
+              "$$hashKey": "object:82704"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=20",
+              "$$hashKey": "object:82705"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645110684859_1693215589",
+      "id": "paragraph_1645026132188_1212006077",
+      "dateCreated": "2022-02-17T09:11:24-0600",
+      "dateStarted": "2022-02-17T16:03:56-0600",
+      "dateFinished": "2022-02-17T16:04:02-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82164"
+    },
+    {
+      "title": "Q1: When Was the Peak Moment of the Pandemic (Spread Rate)?",
+      "text": "%sql\nselect * from question01;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:02-0600",
+      "progress": 32,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Date": "string",
+                      "Confirmed": "string",
+                      "Deaths": "string",
+                      "Recovered": "string",
+                      "Mortality Rate": "string",
+                      "Spread Rate": "string",
+                      "Difference": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Date",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Spread Rate",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Date\tMortality Rate\tSpread Rate\tDifference\n2020-01\t0.021\t0.0\t9925\n2020-02\t0.034\t7.666\t76087\n2020-03\t0.049\t8.969\t771462\n2020-04\t0.072\t2.801\t2401726\n2020-05\t0.06\t0.893\t2910560\n2020-06\t0.049\t0.7\t4319841\n2020-07\t0.039\t0.68\t7127802\n2020-08\t0.033\t0.449\t7909776\n2020-09\t0.03\t0.333\t8504759\n2020-10\t0.026\t0.357\t12137191\n2020-11\t0.023\t0.373\t17241431\n2020-12\t0.022\t0.318\t20148841\n2021-01\t0.022\t0.233\t19467762\n2021-02\t0.022\t0.108\t11152382\n2021-03\t0.022\t0.129\t14717951\n2021-04\t0.021\t0.175\t22500422\n2021-05\t0.021\t0.123\t18552026\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=21",
+              "$$hashKey": "object:82805"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=22",
+              "$$hashKey": "object:82806"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645121422207_2053456529",
+      "id": "paragraph_1645121422207_2053456529",
+      "dateCreated": "2022-02-17T12:10:22-0600",
+      "dateStarted": "2022-02-17T16:04:02-0600",
+      "dateFinished": "2022-02-17T16:04:07-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82165"
+    },
+    {
+      "title": "Q2: When was the Pandemic's Maximums and Minimums Over the Course of the Year?",
+      "text": "%sql\nselect * from question02;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:07-0600",
+      "progress": 47,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Date": "string",
+                      "Confirmed": "string",
+                      "Deaths": "string",
+                      "Recovered": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Date",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Difference",
+                  "index": 6,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Date\tConfirmed\tDeaths\tRecovered\tMortality Rate\tSpread Rate\tDifference\n2020-01\t9925\t213\t225\t0.021\t0.0\t9925\n2020-02\t86012\t2941\t39781\t0.034\t7.666\t76087\n2020-03\t857474\t42183\t178007\t0.049\t8.969\t771462\n2020-04\t3259200\t234582\t1015102\t0.072\t2.801\t2401726\n2020-05\t6169760\t372825\t2641223\t0.06\t0.893\t2910560\n2020-06\t10489601\t511237\t5352661\t0.049\t0.7\t4319841\n2020-07\t17617403\t679749\t10372626\t0.039\t0.68\t7127802\n2020-08\t25527179\t851025\t16822110\t0.033\t0.449\t7909776\n2020-09\t34031938\t1015039\t23669532\t0.03\t0.333\t8504759\n2020-10\t46169129\t1196922\t30844876\t0.026\t0.357\t12137191\n2020-11\t63410560\t1471785\t40569698\t0.023\t0.373\t17241431\n2020-12\t83559401\t1825209\t47737765\t0.022\t0.318\t20148841\n2021-01\t103027163\t2236267\t57079022\t0.022\t0.233\t19467762\n2021-02\t114179545\t2533745\t64418281\t0.022\t0.108\t11152382\n2021-03\t128897496\t2816445\t73119114\t0.022\t0.129\t14717951\n2021-04\t151397918\t3181950\t88235497\t0.021\t0.175\t22500422\n2021-05\t169949944\t3535218\t107139103\t0.021\t0.123\t18552026\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=23",
+              "$$hashKey": "object:82906"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=24",
+              "$$hashKey": "object:82907"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645124461619_1494962075",
+      "id": "paragraph_1645124461619_1494962075",
+      "dateCreated": "2022-02-17T13:01:01-0600",
+      "dateStarted": "2022-02-17T16:04:07-0600",
+      "dateFinished": "2022-02-17T16:04:13-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82166"
+    },
+    {
+      "title": "Q3: How Many Total Confirmed, Deaths, Recovered by Date?",
+      "text": "%sql\nselect * from question03;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:13-0600",
+      "progress": 50,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Date": "string",
+                      "Confirmed": "string",
+                      "Deaths": "string",
+                      "Recovered": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Date",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Confirmed",
+                  "index": 1,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "Deaths",
+                  "index": 2,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "Recovered",
+                  "index": 3,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Date\tConfirmed\tDeaths\tRecovered\n2020-01\t9925\t213\t225\n2020-02\t86012\t2941\t39781\n2020-03\t857474\t42183\t178007\n2020-04\t3259200\t234582\t1015102\n2020-05\t6169760\t372825\t2641223\n2020-06\t10489601\t511237\t5352661\n2020-07\t17617403\t679749\t10372626\n2020-08\t25527179\t851025\t16822110\n2020-09\t34031938\t1015039\t23669532\n2020-10\t46169129\t1196922\t30844876\n2020-11\t63410560\t1471785\t40569698\n2020-12\t83559401\t1825209\t47737765\n2021-01\t103027163\t2236267\t57079022\n2021-02\t114179545\t2533745\t64418281\n2021-03\t128897496\t2816445\t73119114\n2021-04\t151397918\t3181950\t88235497\n2021-05\t169949944\t3535218\t107139103\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=25",
+              "$$hashKey": "object:83007"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645124483901_1190545295",
+      "id": "paragraph_1645124483901_1190545295",
+      "dateCreated": "2022-02-17T13:01:23-0600",
+      "dateStarted": "2022-02-17T16:04:13-0600",
+      "dateFinished": "2022-02-17T16:04:17-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82167"
+    },
+    {
+      "title": "Q4: Average Mortality Rate by Date (Months)?",
+      "text": "%sql\nselect * from question04;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:17-0600",
+      "progress": 52,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Date": "string",
+                      "Mortality Rate": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Date",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Mortality Rate",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Date\tMortality Rate\n2020-01\t2.1\n2020-02\t3.4\n2020-03\t4.9\n2020-04\t7.2\n2020-05\t6.0\n2020-06\t4.9\n2020-07\t3.9\n2020-08\t3.3\n2020-09\t3.0\n2020-10\t2.6\n2020-11\t2.3\n2020-12\t2.2\n2021-01\t2.2\n2021-02\t2.2\n2021-03\t2.2\n2021-04\t2.1\n2021-05\t2.1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=26",
+              "$$hashKey": "object:83103"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645124737539_422759994",
+      "id": "paragraph_1645124737539_422759994",
+      "dateCreated": "2022-02-17T13:05:37-0600",
+      "dateStarted": "2022-02-17T16:04:17-0600",
+      "dateFinished": "2022-02-17T16:04:20-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82168"
+    },
+    {
+      "title": "Q5: 10 Max Deaths By Country?",
+      "text": "%sql\nselect * from question05;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:20-0600",
+      "progress": 77,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Country/Region": "string",
+                      "sum(Deaths)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Country/Region",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "sum(Deaths)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Country/Region\tsum(Deaths)\nUS\t595671\nBrazil\t479431\nIndia\t333723\nMexico\t250181\nUK\t174855\nItaly\t157192\nRussia\t123498\nFrance\t111212\nSpain\t109439\nGermany\t96483\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=27",
+              "$$hashKey": "object:83199"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645124826175_1964440973",
+      "id": "paragraph_1645124826175_1964440973",
+      "dateCreated": "2022-02-17T13:07:06-0600",
+      "dateStarted": "2022-02-17T16:04:20-0600",
+      "dateFinished": "2022-02-17T16:04:28-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82169"
+    },
+    {
+      "title": "Q6: Countries With Least Deaths?",
+      "text": "%sql\nselect * from question06;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:28-0600",
+      "progress": 54,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Country/Region": "string",
+                      "sum(Deaths)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Country/Region",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "sum(Deaths)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Country/Region\tsum(Deaths)\nGuernsey\t0\nChannel Islands\t0\nEast Timor\t0\nCayman Islands\t0\nPalestine\t0\nGibraltar\t0\nSaint Barthelemy\t0\nNorth Ireland\t0\nFrench Guiana\t0\nMarshall Islands\t0\nGuam\t0\nCuracao\t0\nMayotte\t0\nChina\t0\nPuerto Rico\t0\nRepublic of Ireland\t0\nKiribati\t0\nGuadeloupe\t0\nMacau\t0\nReunion\t0\nGreenland\t0\nSt. Martin\t0\noccupied Palestinian territory\t0\nSamoa\t0\nFaroe Islands\t0\nSolomon Islands\t0\nMicronesia\t0\nDominica\t0\nVatican City\t0\nSaint Kitts and Nevis\t0\nJersey\t0\nAruba\t0\nVanuatu\t1\nGrenada\t1\nMartinique\t1\nBhutan\t1\nMS Zaandam\t2\nBrunei\t3\nLaos\t3\nFiji\t4\nAscension and Tristan da Cunha\t4\nBurundi\t6\nOthers\t8\nSaint Vincent and the Grenadines\t12\nDiamond Princess\t13\nEritrea\t14\nTimor-Leste\t16\nMauritius\t17\nTanzania\t21\nNew Zealand\t26\nSingapore\t32\nIceland\t35\nMonaco\t35\nSao Tome and Principe\t37\nSeychelles\t40\nAntigua and Barbuda\t42\nBarbados\t47\nVietnam\t48\nLiechtenstein\t59\nGuinea-Bissau\t68\nSaint Lucia\t77\nSierra Leone\t79\nLiberia\t86\nSan Marino\t90\nTajikistan\t91\nCentral African Republic\t98\nTaiwan\t100\nBenin\t101\nSouth Sudan\t115\nEquatorial Guinea\t118\nTogo\t125\nAndorra\t127\nComoros\t146\nGabon\t150\nDjibouti\t153\nMaldives\t157\nGuinea\t161\nPapua New Guinea\t163\nBurkina Faso\t166\nChad\t173\nGambia\t178\nRepublic of the Congo\t184\nNicaragua\t186\nNiger\t192\nCambodia\t203\nHong Kong\t210\nBahamas\t229\nCape Verde\t263\nMongolia\t268\nSuriname\t288\nIvory Coast\t303\nHaiti\t306\nBelize\t325\nLesotho\t326\nRwanda\t352\nUganda\t362\nCyprus\t369\nGuyana\t382\nMalta\t421\nMauritania\t463\nTrinidad and Tobago\t470\nMali\t517\nQatar\t554\nEswatini\t672\nUzbekistan\t688\nAngola\t760\nSomalia\t769\nDemocratic Republic of the Congo\t782\nNorway\t783\nGhana\t784\nLuxembourg\t816\nNamibia\t818\nMadagascar\t829\nBotswana\t831\nMozambique\t870\nAustralia\t912\nBahrain\t939\nJamaica\t942\nCuba\t944\nFinland\t959\nThailand\t988\nSenegal\t1138\nMalawi\t1154\nEstonia\t1256\nCameroon\t1275\nZambia\t1276\nYemen\t1319\nSri Lanka\t1363\nMontenegro\t1583\nZimbabwe\t1594\nSint Eustatius and Saba\t1612\nUnited Arab Emirates\t1673\nSyria\t1763\nKuwait\t1764\nSouth Korea\t1957\nNigeria\t2072\nKyrgyzstan\t2240\nEl Salvador\t2241\nKosovo\t2247\nOman\t2303\nLatvia\t2370\nAlbania\t2449\nDenmark\t2536\nSudan\t2600\nVenezuela\t2621\nMalaysia\t2650\nBelarus\t2831\nAfghanistan\t2899\nLibya\t3119\nKenya\t3141\nBurma\t3217\nKazakhstan\t3443\nAlgeria\t3460\nWest Bank and Gaza\t3494\nDominican Republic\t3628\nCosta Rica\t3962\nEthiopia\t4143\nUruguay\t4176\nLithuania\t4245\nSlovenia\t4372\nArmenia\t4428\nMainland China\t4652\nGeorgia\t4739\nAzerbaijan\t4903\nIreland\t4960\nNorth Macedonia\t5398\nMoldova\t6100\nHonduras\t6296\nPanama\t6369\nIsrael\t6411\nSerbia\t6847\nNepal\t7163\nSaudi Arabia\t7334\nLebanon\t7718\nCroatia\t8002\nGuatemala\t8124\nParaguay\t8987\nMorocco\t9138\nBosnia and Herzegovina\t9222\nJordan\t9436\nAustria\t10594\nSwitzerland\t10935\nGreece\t12024\nSlovakia\t12334\nBangladesh\t12549\nTunisia\t12574\nJapan\t13763\nBolivia\t14435\nEgypt\t15001\nIraq\t16334\nPortugal\t17023\nBulgaria\t17657\nSweden\t19121\nEcuador\t20485\nPhilippines\t20724\nPakistan\t22994\nNetherlands\t24216\nCanada\t25479\nHungary\t29709\nCzech Republic\t30115\nRomania\t30247\nChile\t32002\nBelgium\t38796\nTurkey\t47271\nIndonesia\t50262\nUkraine\t53122\nSouth Africa\t56363\nPoland\t73682\nArgentina\t77108\nIran\t79741\nPeru\t82446\nColombia\t92622\nGermany\t96483\nSpain\t109439\nFrance\t111212\nRussia\t123498\nItaly\t157192\nUK\t174855\nMexico\t250181\nIndia\t333723\nBrazil\t479431\nUS\t595671\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=28",
+              "$$hashKey": "object:83295"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645124868319_1381228774",
+      "id": "paragraph_1645124868319_1381228774",
+      "dateCreated": "2022-02-17T13:07:48-0600",
+      "dateStarted": "2022-02-17T16:04:28-0600",
+      "dateFinished": "2022-02-17T16:04:36-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82170"
+    },
+    {
+      "title": "Q7: Number of Confirmed Cases by Day of Week?",
+      "text": "%sql\nselect * from question07 order by case\nwhen DayOfWeek = 'Mon' then 1\nwhen DayOfWeek = 'Tue' then 2\nwhen DayOfWeek = 'Wed' then 3\nwhen DayOfWeek = 'Thu' then 4\nwhen DayOfWeek = 'Fri' then 5\nwhen DayOfWeek = 'Sat' then 6\nwhen DayOfWeek = 'Sun' then 7\nend",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:36-0600",
+      "progress": 99,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Date": "string",
+                      "Confirmed": "string",
+                      "Difference": "string",
+                      "DayOfWeek": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": true
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "DayOfWeek",
+                  "index": 3,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "DayOfWeek",
+                  "index": 3,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "Confirmed",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Date\tConfirmed\tDifference\tDayOfWeek\n2021-03-29\t464082\t-14129\tMon\n2020-08-24\t226227\t8836\tMon\n2021-04-05\t498406\t-54621\tMon\n2021-04-12\t618932\t-82358\tMon\n2020-05-11\t75455\t-1948\tMon\n2020-08-31\t265007\t44018\tMon\n2021-04-19\t693429\t-10655\tMon\n2020-02-17\t2034\t-159\tMon\n2021-04-26\t697678\t-24701\tMon\n2020-09-07\t221125\t-18011\tMon\n2021-05-03\t683698\t9085\tMon\n2021-05-10\t627162\t-21713\tMon\n2020-03-16\t15329\t3996\tMon\n2020-09-14\t180237\t-62333\tMon\n2021-05-17\t539725\t-9775\tMon\n2021-05-24\t458741\t-18180\tMon\n2020-05-18\t88753\t8673\tMon\n2020-09-21\t276089\t22882\tMon\n2020-09-28\t252649\t-2211\tMon\n2020-03-23\t57255\t3182\tMon\n2020-05-25\t88040\t-8780\tMon\n2020-10-05\t297240\t21167\tMon\n2020-01-27\t813\t132\tMon\n2020-02-03\t3094\t-1656\tMon\n2020-10-12\t292112\t5097\tMon\n2020-06-01\t528992\t420725\tMon\n2020-10-19\t387438\t70269\tMon\n2020-10-26\t441187\t41048\tMon\n2020-03-30\t62353\t3074\tMon\n2020-06-08\t108446\t-5621\tMon\n2020-11-02\t807662\t337612\tMon\n2020-02-24\t603\t217\tMon\n2020-11-09\t501476\t17478\tMon\n2020-06-15\t133621\t-532\tMon\n2020-11-16\t533707\t51454\tMon\n2020-11-23\t525553\t30890\tMon\n2020-04-06\t71760\t-1894\tMon\n2020-06-22\t144567\t-19964\tMon\n2020-11-30\t508649\t11545\tMon\n2020-12-07\t529047\t-11526\tMon\n2020-06-29\t155123\t-14365\tMon\n2020-12-14\t535822\t3318\tMon\n2020-12-21\t549298\t5239\tMon\n2020-04-13\t70056\t-29103\tMon\n2020-07-06\t169155\t-14162\tMon\n2020-12-28\t496334\t57879\tMon\n2020-02-10\t2612\t-479\tMon\n2020-03-02\t1955\t-400\tMon\n2021-01-04\t554131\t21335\tMon\n2020-07-13\t193392\t553\tMon\n2021-01-11\t620024\t20118\tMon\n2021-01-18\t515067\t-19641\tMon\n2020-04-20\t71227\t-8552\tMon\n2020-07-20\t216717\t2740\tMon\n2021-01-25\t497372\t46189\tMon\n2021-02-01\t453986\t70398\tMon\n2020-07-27\t235387\t29475\tMon\n2021-02-08\t315915\t-82176\tMon\n2021-02-15\t283166\t-10685\tMon\n2020-04-27\t69607\t-4796\tMon\n2020-08-03\t207697\t-23658\tMon\n2021-02-22\t295848\t-18598\tMon\n2020-03-09\t4015\t21\tMon\n2021-03-01\t305888\t2379\tMon\n2020-08-10\t227012\t1167\tMon\n2021-03-08\t305398\t-66577\tMon\n2021-03-15\t348901\t-17086\tMon\n2020-05-04\t76333\t-2832\tMon\n2020-08-17\t207699\t-7808\tMon\n2021-03-22\t424662\t-16126\tMon\n2021-02-02\t459698\t5712\tTue\n2021-03-16\t473014\t124113\tTue\n2020-01-28\t2652\t1839\tTue\n2021-03-30\t571512\t107430\tTue\n2021-05-04\t811515\t127817\tTue\n2020-02-11\t2040\t-572\tTue\n2020-07-21\t240494\t23777\tTue\n2021-02-09\t430401\t114486\tTue\n2021-02-16\t351038\t67872\tTue\n2021-02-23\t391057\t95209\tTue\n2021-03-09\t417116\t111718\tTue\n2021-03-23\t514245\t89583\tTue\n2021-04-06\t605381\t106975\tTue\n2021-04-13\t779567\t160635\tTue\n2021-04-20\t857470\t164041\tTue\n2020-02-04\t4014\t920\tTue\n2021-05-11\t738489\t111327\tTue\n2021-05-18\t632845\t93120\tTue\n2021-05-25\t532040\t73299\tTue\n2021-03-02\t405107\t99219\tTue\n2021-04-27\t851081\t153403\tTue\n2020-02-25\t845\t242\tTue\n2020-02-18\t1878\t-156\tTue\n2020-03-03\t2547\t592\tTue\n2020-03-10\t5439\t1424\tTue\n2020-03-17\t15641\t312\tTue\n2020-03-24\t43436\t-13819\tTue\n2020-04-14\t71409\t1353\tTue\n2020-03-31\t75111\t12758\tTue\n2020-04-07\t73689\t1929\tTue\n2020-04-21\t77066\t5839\tTue\n2020-04-28\t75325\t5718\tTue\n2020-05-05\t79817\t3484\tTue\n2020-05-12\t85040\t9585\tTue\n2020-05-19\t95595\t6842\tTue\n2020-06-02\t123376\t-405616\tTue\n2020-05-26\t95442\t7402\tTue\n2020-06-09\t123787\t15341\tTue\n2020-06-16\t139800\t6179\tTue\n2020-06-23\t166454\t21887\tTue\n2020-06-30\t174317\t19194\tTue\n2020-07-07\t210452\t41297\tTue\n2020-07-14\t221348\t27956\tTue\n2020-08-11\t257121\t30109\tTue\n2020-07-28\t204587\t-30800\tTue\n2020-08-04\t258196\t50499\tTue\n2020-08-18\t258373\t50674\tTue\n2020-08-25\t243825\t17598\tTue\n2020-09-01\t265967\t960\tTue\n2020-09-08\t239669\t18544\tTue\n2020-09-22\t284883\t8794\tTue\n2020-09-15\t369221\t188984\tTue\n2020-09-29\t283546\t30897\tTue\n2020-10-06\t331646\t34406\tTue\n2020-10-13\t319992\t27880\tTue\n2020-10-20\t389744\t2306\tTue\n2020-10-27\t471344\t30157\tTue\n2020-11-03\t817559\t9897\tTue\n2020-11-24\t591581\t66028\tTue\n2020-11-10\t565522\t64046\tTue\n2020-11-17\t611967\t78260\tTue\n2020-12-01\t612099\t103450\tTue\n2020-12-08\t643523\t114476\tTue\n2020-12-15\t636300\t100478\tTue\n2020-12-22\t650678\t101380\tTue\n2020-12-29\t666584\t170250\tTue\n2021-01-12\t707063\t87039\tTue\n2021-01-05\t742595\t188464\tTue\n2021-01-19\t616505\t101438\tTue\n2021-01-26\t556251\t58879\tTue\n2020-02-05\t3744\t-270\tWed\n2020-06-03\t119802\t-3574\tWed\n2020-01-29\t587\t-2065\tWed\n2020-02-26\t985\t140\tWed\n2020-02-12\t419\t-1621\tWed\n2020-03-11\t9758\t4319\tWed\n2020-04-15\t79883\t8474\tWed\n2020-05-06\t93431\t13614\tWed\n2020-06-24\t169055\t2601\tWed\n2020-06-10\t509040\t385253\tWed\n2020-07-01\t217271\t42954\tWed\n2020-08-05\t275874\t17678\tWed\n2020-08-26\t282194\t38369\tWed\n2020-10-07\t349977\t18331\tWed\n2020-09-23\t275098\t-9785\tWed\n2020-10-21\t444287\t54543\tWed\n2020-11-25\t636224\t44643\tWed\n2020-12-16\t733761\t97461\tWed\n2021-01-27\t611967\t55716\tWed\n2021-02-10\t442416\t12015\tWed\n2021-03-17\t542484\t69470\tWed\n2021-04-07\t684346\t78965\tWed\n2021-05-19\t671554\t38709\tWed\n2021-01-13\t748398\t41335\tWed\n2020-02-19\t503\t-1375\tWed\n2020-03-04\t2272\t-275\tWed\n2020-03-18\t17870\t2229\tWed\n2020-03-25\t49645\t6209\tWed\n2020-04-01\t74966\t-145\tWed\n2020-04-08\t85332\t11643\tWed\n2020-04-22\t78697\t1631\tWed\n2020-04-29\t80157\t4832\tWed\n2020-05-13\t85648\t608\tWed\n2020-05-20\t475176\t379581\tWed\n2020-05-27\t102433\t6991\tWed\n2020-06-17\t177472\t37672\tWed\n2020-07-08\t214455\t4003\tWed\n2020-07-15\t232216\t10868\tWed\n2020-07-22\t279692\t39198\tWed\n2020-07-29\t339930\t135343\tWed\n2020-08-12\t287746\t30625\tWed\n2020-08-19\t278801\t20428\tWed\n2020-09-02\t282717\t16750\tWed\n2020-09-09\t293459\t53790\tWed\n2020-09-16\t303974\t-65247\tWed\n2020-09-30\t331497\t47951\tWed\n2020-10-14\t383338\t63346\tWed\n2020-10-28\t518602\t47258\tWed\n2020-11-04\t598714\t-218845\tWed\n2020-11-11\t648606\t83084\tWed\n2020-11-18\t627103\t15136\tWed\n2020-12-02\t651398\t39299\tWed\n2020-12-09\t669908\t26385\tWed\n2020-12-23\t695219\t44541\tWed\n2020-12-30\t761238\t94654\tWed\n2021-01-06\t783375\t40780\tWed\n2021-02-03\t523500\t63802\tWed\n2021-02-17\t401064\t50026\tWed\n2021-02-24\t446044\t54987\tWed\n2021-03-03\t442205\t37098\tWed\n2021-03-10\t476036\t58920\tWed\n2021-03-24\t635582\t121337\tWed\n2021-03-31\t683205\t111693\tWed\n2021-04-14\t833473\t53906\tWed\n2021-04-21\t894655\t37185\tWed\n2021-04-28\t906049\t54968\tWed\n2020-01-22\t557\t557\tWed\n2021-05-26\t572050\t40010\tWed\n2021-05-12\t760099\t21610\tWed\n2021-01-20\t693028\t76523\tWed\n2021-05-05\t842317\t30802\tWed\n2020-12-17\t739901\t6140\tThu\n2020-10-01\t312726\t-18771\tThu\n2020-12-24\t666639\t-28580\tThu\n2021-01-21\t666011\t-27017\tThu\n2021-03-25\t651371\t15789\tThu\n2020-01-23\t98\t-459\tThu\n2020-10-08\t361527\t11550\tThu\n2020-10-29\t538458\t19856\tThu\n2020-12-31\t729881\t-31357\tThu\n2021-01-28\t626899\t14932\tThu\n2021-02-18\t403526\t2462\tThu\n2021-04-01\t711787\t28582\tThu\n2021-04-15\t825522\t-7951\tThu\n2021-05-13\t734228\t-25871\tThu\n2020-11-26\t583201\t-53023\tThu\n2020-02-06\t3182\t-562\tThu\n2020-04-16\t96553\t16670\tThu\n2020-10-15\t407219\t23881\tThu\n2020-11-05\t596667\t-2047\tThu\n2020-11-12\t1164933\t516327\tThu\n2021-01-07\t882888\t99513\tThu\n2021-02-04\t475941\t-47559\tThu\n2021-02-25\t447478\t1434\tThu\n2021-03-04\t453049\t10844\tThu\n2021-04-08\t839850\t155504\tThu\n2021-04-22\t899832\t5177\tThu\n2021-04-29\t896242\t-9807\tThu\n2021-05-20\t634243\t-37311\tThu\n2021-03-18\t562424\t19940\tThu\n2020-12-03\t696226\t44828\tThu\n2020-01-30\t2070\t1483\tThu\n2020-02-13\t15148\t14729\tThu\n2020-02-27\t1359\t374\tThu\n2020-03-19\t27694\t9824\tThu\n2020-05-07\t91930\t-1501\tThu\n2020-04-23\t82348\t3651\tThu\n2020-05-14\t719641\t633993\tThu\n2020-06-18\t139763\t-37709\tThu\n2020-07-09\t229315\t14860\tThu\n2020-08-20\t272682\t-6119\tThu\n2020-08-06\t285453\t9579\tThu\n2020-09-03\t281724\t-993\tThu\n2020-10-22\t478357\t34070\tThu\n2020-11-19\t653586\t26483\tThu\n2021-01-14\t755368\t6970\tThu\n2021-02-11\t441480\t-936\tThu\n2021-03-11\t485011\t8975\tThu\n2021-05-06\t870517\t28200\tThu\n2021-05-27\t554943\t-17107\tThu\n2020-12-10\t1498216\t828308\tThu\n2020-02-20\t558\t55\tThu\n2020-03-05\t2809\t537\tThu\n2020-03-12\t2924\t-6834\tThu\n2020-03-26\t62136\t12491\tThu\n2020-04-02\t80623\t5657\tThu\n2020-04-09\t83494\t-1838\tThu\n2020-04-30\t86763\t6606\tThu\n2020-05-21\t106342\t-368834\tThu\n2020-05-28\t294198\t191765\tThu\n2020-06-04\t128419\t8617\tThu\n2020-06-11\t445374\t-63666\tThu\n2020-06-25\t179830\t10775\tThu\n2020-07-02\t296044\t78773\tThu\n2020-07-16\t249186\t16970\tThu\n2020-07-23\t283025\t3333\tThu\n2020-07-30\t280601\t-59329\tThu\n2020-08-13\t278440\t-9306\tThu\n2020-08-27\t284068\t1874\tThu\n2020-09-10\t300022\t6563\tThu\n2020-09-17\t315080\t11106\tThu\n2020-09-24\t353467\t78369\tThu\n2020-02-07\t3594\t412\tFri\n2020-02-14\t6517\t-8631\tFri\n2020-02-28\t1369\t10\tFri\n2020-10-16\t412272\t5053\tFri\n2020-02-21\t644\t86\tFri\n2020-03-06\t3844\t1035\tFri\n2020-06-19\t180115\t40352\tFri\n2020-10-23\t506442\t28085\tFri\n2021-01-29\t590466\t-36433\tFri\n2020-03-13\t17760\t14836\tFri\n2020-04-24\t103982\t21634\tFri\n2020-06-26\t192021\t12191\tFri\n2020-08-14\t302418\t23978\tFri\n2020-10-30\t567228\t28770\tFri\n2020-12-04\t689876\t-6350\tFri\n2021-02-05\t535444\t59503\tFri\n2021-03-26\t641351\t-10020\tFri\n2020-03-20\t29610\t1916\tFri\n2020-03-27\t63773\t1637\tFri\n2020-05-01\t87569\t806\tFri\n2020-05-22\t108667\t2325\tFri\n2020-07-03\t204945\t-91099\tFri\n2020-07-17\t302214\t53028\tFri\n2020-08-21\t261877\t-10805\tFri\n2020-09-11\t321095\t21073\tFri\n2020-11-06\t645593\t48926\tFri\n2020-12-11\t705800\t-792416\tFri\n2021-01-01\t544294\t-185587\tFri\n2021-02-12\t435413\t-6067\tFri\n2021-02-26\t448966\t1488\tFri\n2021-04-02\t648800\t-62987\tFri\n2021-04-23\t904962\t5130\tFri\n2021-05-28\t504741\t-50202\tFri\n2020-01-24\t287\t189\tFri\n2020-04-03\t82753\t2130\tFri\n2020-04-10\t93437\t9943\tFri\n2020-05-08\t92974\t1044\tFri\n2020-05-29\t115225\t-178973\tFri\n2020-06-05\t179507\t51088\tFri\n2020-07-10\t235673\t6358\tFri\n2020-07-24\t282031\t-994\tFri\n2020-07-31\t290804\t10203\tFri\n2020-08-28\t285789\t1721\tFri\n2020-09-18\t326107\t11027\tFri\n2020-09-25\t335790\t-17677\tFri\n2020-11-13\t652323\t-512610\tFri\n2020-11-20\t668933\t15347\tFri\n2020-12-18\t721843\t-18058\tFri\n2021-01-08\t808452\t-74436\tFri\n2021-01-15\t768601\t13233\tFri\n2021-02-19\t412549\t9023\tFri\n2021-03-05\t447054\t-5995\tFri\n2021-03-12\t489614\t4603\tFri\n2021-04-09\t753575\t-86275\tFri\n2021-04-30\t891903\t-4339\tFri\n2021-05-07\t832237\t-38280\tFri\n2021-05-21\t625896\t-8347\tFri\n2020-01-31\t1691\t-379\tFri\n2020-04-17\t87759\t-8794\tFri\n2020-05-15\t100125\t-619516\tFri\n2020-06-12\t118888\t-326486\tFri\n2020-08-07\t282622\t-2831\tFri\n2020-09-04\t305928\t24204\tFri\n2020-10-02\t305740\t-6986\tFri\n2020-11-27\t687944\t104743\tFri\n2020-12-25\t479210\t-187429\tFri\n2021-01-22\t659061\t-6950\tFri\n2021-03-19\t562313\t-111\tFri\n2021-04-16\t854943\t29421\tFri\n2021-05-14\t719726\t-14502\tFri\n2020-10-09\t361283\t-244\tFri\n2020-02-01\t2124\t433\tSat\n2020-02-08\t2729\t-865\tSat\n2020-02-15\t2146\t-4371\tSat\n2020-09-05\t279080\t-26848\tSat\n2020-02-22\t1775\t1131\tSat\n2020-05-02\t83177\t-4392\tSat\n2020-09-12\t287232\t-33863\tSat\n2020-12-12\t634847\t-70953\tSat\n2020-02-29\t1897\t528\tSat\n2020-03-07\t4099\t255\tSat\n2020-05-09\t86325\t-6649\tSat\n2020-06-27\t177985\t-14036\tSat\n2020-09-19\t292859\t-33248\tSat\n2020-10-17\t373249\t-39023\tSat\n2020-12-19\t613110\t-108733\tSat\n2021-02-06\t378840\t-156604\tSat\n2021-04-17\t796587\t-58356\tSat\n2020-03-14\t10905\t-6855\tSat\n2020-04-04\t80069\t-2684\tSat\n2020-05-16\t92194\t-7931\tSat\n2020-05-30\t134653\t19428\tSat\n2020-07-04\t192720\t-12225\tSat\n2020-07-25\t253302\t-28729\tSat\n2020-09-26\t289913\t-45877\tSat\n2020-10-24\t457632\t-48810\tSat\n2020-11-14\t597116\t-55207\tSat\n2020-12-26\t512983\t33773\tSat\n2021-01-09\t761005\t-47447\tSat\n2021-02-13\t373301\t-62112\tSat\n2021-03-06\t415423\t-31631\tSat\n2021-04-24\t836310\t-68652\tSat\n2021-05-01\t797505\t-94398\tSat\n2021-04-03\t539441\t-109359\tSat\n2020-03-21\t32410\t2800\tSat\n2020-04-11\t78049\t-15388\tSat\n2020-04-18\t81324\t-6435\tSat\n2020-05-23\t99646\t-9021\tSat\n2020-06-06\t125912\t-53595\tSat\n2020-06-13\t134801\t15913\tSat\n2020-07-11\t218731\t-16942\tSat\n2020-08-01\t249332\t-41472\tSat\n2020-08-08\t259295\t-23327\tSat\n2020-10-03\t332752\t27012\tSat\n2020-10-31\t488877\t-78351\tSat\n2020-11-21\t589699\t-79234\tSat\n2020-11-28\t587306\t-100638\tSat\n2021-01-02\t626359\t82065\tSat\n2021-01-16\t639158\t-129443\tSat\n2021-01-23\t568128\t-90933\tSat\n2021-02-20\t381701\t-30848\tSat\n2021-03-13\t454149\t-35465\tSat\n2021-03-20\t498823\t-63490\tSat\n2021-05-08\t786543\t-45694\tSat\n2021-05-15\t628513\t-91213\tSat\n2021-04-10\t664507\t-89068\tSat\n2020-08-29\t265670\t-20119\tSat\n2020-01-25\t497\t210\tSat\n2020-03-28\t67284\t3511\tSat\n2020-04-25\t86296\t-17686\tSat\n2020-06-20\t123799\t-56316\tSat\n2020-07-18\t245439\t-56775\tSat\n2020-08-15\t251592\t-50826\tSat\n2020-10-10\t361468\t185\tSat\n2020-11-07\t599468\t-46125\tSat\n2020-12-05\t642036\t-47840\tSat\n2021-01-30\t521151\t-69315\tSat\n2021-02-27\t389598\t-59368\tSat\n2021-03-27\t596511\t-44840\tSat\n2021-05-22\t577794\t-48102\tSat\n2021-05-29\t480880\t-23861\tSat\n2020-08-22\t254286\t-7591\tSat\n2020-01-26\t681\t184\tSun\n2020-02-02\t4750\t2626\tSun\n2020-02-09\t3091\t362\tSun\n2020-07-05\t183317\t-9403\tSun\n2020-02-16\t2193\t47\tSun\n2020-07-12\t192839\t-25892\tSun\n2021-02-14\t293851\t-79450\tSun\n2020-02-23\t386\t-1389\tSun\n2020-03-15\t11333\t428\tSun\n2020-07-19\t213977\t-31462\tSun\n2020-10-25\t400139\t-57493\tSun\n2021-02-21\t314446\t-67255\tSun\n2020-03-01\t2355\t458\tSun\n2020-03-22\t54073\t21663\tSun\n2020-05-10\t77403\t-8922\tSun\n2020-07-26\t205912\t-47390\tSun\n2020-08-30\t220989\t-44681\tSun\n2020-11-01\t470050\t-18827\tSun\n2020-12-20\t544059\t-69051\tSun\n2021-02-28\t303509\t-86089\tSun\n2021-04-11\t701290\t36783\tSun\n2020-03-08\t3994\t-105\tSun\n2020-03-29\t59279\t-8005\tSun\n2020-04-12\t99159\t21110\tSun\n2020-05-17\t80080\t-12114\tSun\n2020-06-07\t114067\t-11845\tSun\n2020-08-02\t231355\t-17977\tSun\n2020-09-06\t239136\t-39944\tSun\n2020-09-27\t254860\t-35053\tSun\n2020-11-08\t483998\t-115470\tSun\n2020-11-22\t494663\t-95036\tSun\n2020-12-27\t438455\t-74528\tSun\n2021-01-17\t534708\t-104450\tSun\n2021-03-07\t371975\t-43448\tSun\n2021-03-14\t365987\t-88162\tSun\n2021-04-18\t704084\t-92503\tSun\n2021-05-09\t648875\t-137668\tSun\n2020-04-05\t73654\t-6415\tSun\n2020-04-19\t79779\t-1545\tSun\n2020-04-26\t74403\t-11893\tSun\n2020-05-24\t96820\t-2826\tSun\n2020-06-14\t134153\t-648\tSun\n2020-06-21\t164531\t40732\tSun\n2020-08-09\t225845\t-33450\tSun\n2020-08-16\t215507\t-36085\tSun\n2020-09-13\t242570\t-44662\tSun\n2020-10-04\t276073\t-56679\tSun\n2020-10-11\t287015\t-74453\tSun\n2020-11-15\t482253\t-114863\tSun\n2020-11-29\t497104\t-90202\tSun\n2020-12-06\t540573\t-101463\tSun\n2021-01-03\t532796\t-93563\tSun\n2021-01-24\t451183\t-116945\tSun\n2021-01-31\t383588\t-137563\tSun\n2021-03-21\t440788\t-58035\tSun\n2021-03-28\t478211\t-118300\tSun\n2021-04-25\t722379\t-113931\tSun\n2021-05-16\t549500\t-79013\tSun\n2021-05-23\t476921\t-100873\tSun\n2020-05-03\t79165\t-4012\tSun\n2020-05-31\t108267\t-26386\tSun\n2020-06-28\t169488\t-8497\tSun\n2020-08-23\t217391\t-36895\tSun\n2020-09-20\t253207\t-39652\tSun\n2020-10-18\t317169\t-56080\tSun\n2020-12-13\t532504\t-102343\tSun\n2021-01-10\t599906\t-161099\tSun\n2021-02-07\t398091\t19251\tSun\n2021-04-04\t553027\t13586\tSun\n2021-05-02\t674613\t-122892\tSun\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=29",
+              "$$hashKey": "object:83391"
+            },
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=30",
+              "$$hashKey": "object:83392"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645128097144_1134802156",
+      "id": "paragraph_1645128097144_1134802156",
+      "dateCreated": "2022-02-17T14:01:37-0600",
+      "dateStarted": "2022-02-17T16:04:36-0600",
+      "dateFinished": "2022-02-17T16:04:41-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82171"
+    },
+    {
+      "title": "Q8: Countries Correlation Between Deaths and Population?",
+      "text": "%sql\nselect * from question08;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:41-0600",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 878.717,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Deaths": "string",
+                      "Country": "string",
+                      "Population": "string",
+                      "Yearly Change": "string",
+                      "Net Change": "string",
+                      "Density (P/Km²)": "string",
+                      "Land Area (Km²)": "string",
+                      "Migrants (net)": "string",
+                      "Fert. Rate": "string",
+                      "Med. Age": "string",
+                      "Urban Pop %": "string",
+                      "World Share": "string",
+                      "Continent": "string",
+                      "sum(Deaths)": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "scatterChart": {
+                  "xAxis": {
+                    "name": "Population",
+                    "index": 2,
+                    "aggr": "sum"
+                  },
+                  "yAxis": {
+                    "name": "sum(Deaths)",
+                    "index": 1,
+                    "aggr": "sum"
+                  },
+                  "group": {
+                    "name": "Country",
+                    "index": 0,
+                    "aggr": "sum"
+                  }
+                }
+              }
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Country\tsum(Deaths)\tPopulation\tContinent\nMainland China\t8.445052513638554\t21.088115752066077\tAsia\nIndia\t12.718066586547701\t21.04704723083267\tAsia\nIndonesia\t10.825004603381865\t19.428717507959433\tAsia\nPakistan\t10.042988591313685\t19.216442205216488\tAsia\nBrazil\t13.080355263055322\t19.175966627764033\tSouth America\nNigeria\t7.6362696033793735\t19.148153730012943\tAfrica\nBangladesh\t9.437396260110308\t18.92128842994165\tAsia\nRussia\t11.723980240587055\t18.798743986757124\tAsia\nMexico\t12.429939934882816\t18.676609173561214\tNorth America\nJapan\t9.529739110979532\t18.655020756307607\tAsia\nEthiopia\t8.329175442077402\t18.564213342373527\tAfrica\nPhilippines\t9.939047727934678\t18.514447223773836\tAsia\nEgypt\t9.61587214452889\t18.44692460152035\tAfrica\nVietnam\t3.8712010109078907\t18.395260499952457\tAsia\nTurkey\t10.763652278630156\t18.25220579488474\tAsia\nIran\t11.286539161614174\t18.24843143929175\tAsia\nGermany\t11.47712210600495\t18.24431309144125\tEurope\nThailand\t6.895682697747868\t18.061585430423747\tAsia\nFrance\t11.619193568645423\t17.99448620820123\tEurope\nItaly\t11.965223267097032\t17.917261541476016\tEurope\nTanzania\t3.044522437723423\t17.910061765500426\tAfrica\nSouth Africa\t10.939568193836587\t17.90042285927846\tAfrica\nKenya\t8.052296499538647\t17.80391552948955\tAfrica\nSouth Korea\t7.579167967396076\t17.752752417980986\tAsia\nSouth Korea\t7.579167967396076\t17.752752417980986\tAsia\nColombia\t11.436281973409896\t17.746870356714602\tSouth America\nSpain\t11.603122595387731\t17.66049549431937\tEurope\nUganda\t5.891644211825771\t17.64360682763787\tAfrica\nArgentina\t11.252962315517482\t17.628098767040193\tSouth America\nSudan\t7.8632667240095735\t17.60013789153261\tAfrica\nAlgeria\t8.14902386805177\t17.59934942582586\tAfrica\nUkraine\t10.88034643404396\t17.59255145041037\tEurope\nIraq\t9.70100410391822\t17.513666130552767\tAsia\nAfghanistan\t7.972121128921655\t17.480975007998406\tAsia\nPoland\t11.207513814969037\t17.44885761379346\tEurope\nCanada\t10.145609862448119\t17.447803972636073\tNorth America\nMorocco\t9.120196822123217\t17.426039854566525\tAfrica\nSaudi Arabia\t8.900276348631271\t17.368167630560084\tAsia\nUzbekistan\t6.5337888379333435\t17.328601786521144\tAsia\nPeru\t11.31989881255983\t17.313538508507854\tSouth America\nAngola\t6.633318433280377\t17.312989617071036\tAfrica\nMalaysia\t7.882314918980268\t17.294809163840053\tAsia\nMozambique\t6.76849321164863\t17.262280583919498\tAfrica\nGhana\t6.664409020350408\t17.25533321913402\tAfrica\nYemen\t7.1846291527173145\t17.214554556092775\tAsia\nNepal\t8.876684166614451\t17.190541771886743\tAsia\nVenezuela\t7.8713112033234065\t17.162659308924088\tSouth America\nMadagascar\t6.720220155135295\t17.140848511491825\tAfrica\nCameroon\t7.150701457592526\t17.098490422096464\tAfrica\nAustralia\t6.815639990074331\t17.056174606154936\tOceania\nNiger\t5.2574953720277815\t17.007897345637208\tAfrica\nTaiwan\t4.605170185988092\t16.986219522368923\tAsia\nSri Lanka\t7.217443431696533\t16.88025430283224\tAsia\nBurkina Faso\t5.111987788356544\t16.85990408261686\tAfrica\nMali\t6.248042874508429\t16.828400100191523\tAfrica\nRomania\t10.317152284987246\t16.771181381044386\tEurope\nMalawi\t7.050989447068045\t16.771015712108053\tAfrica\nChile\t10.37355367982882\t16.767531510661886\tSouth America\nKazakhstan\t8.144098463338524\t16.75017725937252\tAsia\nZambia\t7.151485463904735\t16.731563978474938\tAfrica\nGuatemala\t9.002577922700276\t16.704291161757\tNorth America\nEcuador\t9.927448189980971\t16.688430865713094\tSouth America\nSyria\t7.47477218239787\t16.68176339006921\tAsia\nNetherlands\t10.094768850701554\t16.657015548757077\tEurope\nSenegal\t7.037027614686276\t16.63787342439204\tAfrica\nCambodia\t5.313205979041787\t16.63441304729845\tAsia\nChad\t5.153291594497779\t16.6190452873076\tAfrica\nSomalia\t6.645090969505644\t16.585962498912075\tAfrica\nZimbabwe\t7.374001859350161\t16.516856401670065\tAfrica\nGuinea\t5.081404364984463\t16.395066487392008\tAfrica\nRwanda\t5.863631175598097\t16.380867755324736\tAfrica\nBenin\t4.61512051684126\t16.314934651207114\tAfrica\nBurundi\t1.791759469228055\t16.29611245558753\tAfrica\nTunisia\t9.439386468943006\t16.286987261720476\tAfrica\nBolivia\t9.577411092097035\t16.27511709191917\tSouth America\nBelgium\t10.566072427513433\t16.266382112677313\tEurope\nHaiti\t5.723585101952381\t16.251433174791504\tNorth America\nCuba\t6.8501261661455\t16.2425577541237\tNorth America\nSouth Sudan\t4.74493212836325\t16.232874177594404\tAfrica\nDominican Republic\t8.196436811235028\t16.201210588343674\tNorth America\nGreece\t9.39465993143281\t16.15865546711283\tEurope\nJordan\t9.152287440527566\t16.139916240797813\tAsia\nPortugal\t9.742320649814571\t16.13705566845659\tEurope\nAzerbaijan\t8.497602541651233\t16.133474586573794\tEurope\nSweden\t9.85854248649296\t16.129058637219714\tEurope\nHonduras\t8.74766979009724\t16.111205266689762\tNorth America\nUnited Arab Emirates\t7.422373700986824\t16.109144912346324\tAsia\nHungary\t10.299205309189412\t16.083088281194573\tEurope\nTajikistan\t4.51085950651685\t16.07448957614731\tAsia\nBelarus\t7.9483852851118995\t16.061395343936123\tEurope\nAustria\t9.268043082104471\t16.014440458188293\tEurope\nPapua New Guinea\t5.093750200806762\t16.01001265493388\tOceania\nSerbia\t8.831565879121063\t15.982399746037736\tEurope\nIsrael\t8.765770543987257\t15.976361219505014\tAsia\nSwitzerland\t9.299723933110869\t15.97487345380076\tEurope\nTogo\t4.8283137373023015\t15.933082555220993\tAfrica\nSierra Leone\t4.3694478524670215\t15.895471714620863\tAfrica\nHong Kong\t5.3471075307174685\t15.831416142437993\tAsia\nLaos\t1.0986122886681096\t15.80249985704396\tAsia\nParaguay\t9.103534367658373\t15.782280618331244\tSouth America\nBulgaria\t9.778887584302797\t15.752670823912045\tEurope\nLibya\t8.045267716607803\t15.745181998556285\tAfrica\nLebanon\t8.951310542097564\t15.73536651075187\tAsia\nNicaragua\t5.225746673713202\t15.70833256978214\tNorth America\nKyrgyzstan\t7.7142311448490855\t15.693818602661409\tAsia\nEl Salvador\t7.714677473800927\t15.686069346794586\tNorth America\nSingapore\t3.4657359027997265\t15.583373772424876\tAsia\nDenmark\t7.8383433155571165\t15.572640624490447\tEurope\nFinland\t6.8658910748834385\t15.527908767835694\tEurope\nSlovakia\t9.420114955551439\t15.512979310891787\tEurope\nNorway\t6.663132695990803\t15.50719072652144\tEurope\nOman\t7.741967899820685\t15.450237587971099\tAsia\nCosta Rica\t8.284504227258497\t15.445174145452134\tNorth America\nLiberia\t4.454347296253507\t15.440312043971877\tAfrica\nIreland\t8.509161019718974\t15.41434586085771\tEurope\nCentral African Republic\t4.584967478670572\t15.393241887325967\tAfrica\nNew Zealand\t3.258096538021482\t15.390154313572667\tOceania\nMauritania\t6.137727054086234\t15.356621448612872\tAfrica\nPanama\t8.759197750371365\t15.28022230664026\tNorth America\nKuwait\t7.475339236566737\t15.26977193122397\tAsia\nCroatia\t8.98744678941718\t15.226672882153402\tEurope\nMoldova\t8.716044050161402\t15.209846002741717\tEurope\nGeorgia\t8.463581421967588\t15.198751512178314\tEurope\nEritrea\t2.6390573296152584\t15.083808516916767\tAfrica\nUruguay\t8.337109129562474\t15.061347309788877\tSouth America\nMongolia\t5.5909869805108565\t15.00555947330106\tAsia\nBosnia and Herzegovina\t9.129347212766652\t15.002485310492954\tEurope\nArmenia\t8.395703293828527\t14.902124149308307\tEurope\nJamaica\t6.848005274576363\t14.901857601765444\tNorth America\nQatar\t6.317164686747284\t14.876519278528248\tAsia\nAlbania\t7.803435056952168\t14.87234171172846\tEurope\nLithuania\t8.353497098745448\t14.814427733712105\tEurope\nNamibia\t6.706862336602747\t14.751079465908614\tAfrica\nGambia\t5.181783550292085\t14.702488641298576\tAfrica\nBotswana\t6.7226297948554485\t14.673996314081188\tAfrica\nGabon\t5.0106352940962555\t14.619504775659484\tAfrica\nLesotho\t5.786897381366708\t14.578740549144985\tAfrica\nNorth Macedonia\t8.59378379357795\t14.549492052968583\tEurope\nSlovenia\t8.382975849296429\t14.547392275820862\tEurope\nGuinea-Bissau\t4.219507705176107\t14.496442434554938\tAfrica\nLatvia\t7.7706452341291765\t14.448062366280011\tEurope\nBahrain\t6.844815479208263\t14.352621866170985\tAsia\nEquatorial Guinea\t4.770684624465665\t14.159397381330704\tAfrica\nTrinidad and Tobago\t6.152732694704104\t14.152184917014516\tNorth America\nEstonia\t7.135687347028144\t14.098199937641748\tEurope\nTimor-Leste\t2.772588722239781\t14.095160710734888\tAsia\nMauritius\t2.833213344056216\t14.05621107971881\tAfrica\nCyprus\t5.910796644040527\t14.005209832347113\tEurope\nEswatini\t6.51025834052315\t13.965853712644396\tAfrica\nDjibouti\t5.030437921392435\t13.805911635359994\tAfrica\nFiji\t1.3862943611198906\t13.707449733084246\tOceania\nComoros\t4.983606621708336\t13.679341403789282\tAfrica\nGuyana\t5.945420608606575\t13.576256679416687\tSouth America\nBhutan\t0.0\t13.558123586199084\tAsia\nMontenegro\t7.367077059881012\t13.350422825872137\tEurope\nLuxembourg\t6.704414354964107\t13.349823996756244\tEurope\nSuriname\t5.662960480135946\t13.283701309799477\tSouth America\nMaldives\t5.056245805348308\t13.203299839406604\tAsia\nMalta\t6.042632833682381\t12.998499390181943\tEurope\nBrunei\t1.0986122886681096\t12.990435270259058\tAsia\nBelize\t5.783825182329737\t12.896328149219581\tNorth America\nBahamas\t5.43372200355424\t12.883834577793221\tNorth America\nMartinique\t0.0\t12.835249143701605\tNorth America\nIceland\t3.5553480614894135\t12.741477704750539\tEurope\nVanuatu\t0.0\t12.638948619647637\tOceania\nBarbados\t3.8501476017100584\t12.568758984772177\tNorth America\nSaint Lucia\t4.343805421853684\t12.121462020790945\tNorth America\nGrenada\t0.0\t11.631721320884305\tNorth America\nSeychelles\t3.6888794541139363\t11.497334555923976\tAfrica\nAntigua and Barbuda\t3.7376696182833684\t11.493426591536172\tNorth America\nAndorra\t4.844187086458591\t11.25528104449445\tEurope\nMonaco\t3.5553480614894135\t10.578725312552505\tEurope\nLiechtenstein\t4.07753744390572\t10.549202396661185\tEurope\nSan Marino\t4.499809670330265\t10.432467386882161\tEurope\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=33",
+              "$$hashKey": "object:83492"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645128160785_2040217288",
+      "id": "paragraph_1645128160785_2040217288",
+      "dateCreated": "2022-02-17T14:02:40-0600",
+      "dateStarted": "2022-02-17T16:04:41-0600",
+      "dateFinished": "2022-02-17T16:04:43-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82172"
+    },
+    {
+      "title": "Q9: Countries Death Per Capita",
+      "text": "%sql\nselect * from question09;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:11:42-0600",
+      "progress": 40,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Country/Region": "string",
+                      "Deaths": "string",
+                      "Country": "string",
+                      "Population": "string",
+                      "Yearly Change": "string",
+                      "Net Change": "string",
+                      "Density (P/Km²)": "string",
+                      "Land Area (Km²)": "string",
+                      "Migrants (net)": "string",
+                      "Fert. Rate": "string",
+                      "Med. Age": "string",
+                      "Urban Pop %": "string",
+                      "World Share": "string",
+                      "deaths_per_capita": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Country",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "deaths_per_capita",
+                  "index": 3,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Country\tsum(Deaths)\tPopulation\tdeaths_per_capita\nBelgium\t38796\t11598451\t0.0033449294\nHungary\t29709\t9655983\t0.0030767453\nBosnia and Herzegovina\t9222\t3277152\t0.0028140288\nSan Marino\t90\t33944\t0.0026514259\nItaly\t157192\t60446035\t0.0026005345\nNorth Macedonia\t5398\t2083359\t0.0025910081\nBulgaria\t17657\t6939018\t0.0025445964\nMontenegro\t1583\t628080\t0.0025203796\nPeru\t82446\t33050211\t0.0024945680\nSpain\t109439\t46757980\t0.0023405417\nSlovakia\t12334\t5460109\t0.0022589293\nBrazil\t479431\t212821986\t0.0022527325\nSlovenia\t4372\t2078989\t0.0021029452\nCroatia\t8002\t4100719\t0.0019513651\nPoland\t73682\t37839255\t0.0019472371\nMexico\t250181\t129166028\t0.0019368947\nSweden\t19121\t10110233\t0.0018912522\nColombia\t92622\t50976248\t0.0018169639\nArgentina\t77108\t45267449\t0.0017033874\nFrance\t111212\t65298930\t0.0017031213\nChile\t32002\t19144605\t0.0016715936\nPortugal\t17023\t10191409\t0.0016703284\nAndorra\t127\t77287\t0.0016432259\nRomania\t30247\t19214608\t0.0015741669\nLithuania\t4245\t2715340\t0.0015633401\nLiechtenstein\t59\t38147\t0.0015466485\nMoldova\t6100\t4032294\t0.0015127865\nArmenia\t4428\t2964219\t0.0014938168\nPanama\t6369\t4326296\t0.0014721600\nNetherlands\t24216\t17141544\t0.0014127082\nLuxembourg\t816\t627704\t0.0012999758\nSwitzerland\t10935\t8665615\t0.0012618839\nLatvia\t2370\t1882408\t0.0012590257\nParaguay\t8987\t7147553\t0.0012573534\nBolivia\t14435\t11700207\t0.0012337389\nUkraine\t53122\t43686577\t0.0012159799\nUruguay\t4176\t3475842\t0.0012014355\nGeorgia\t4739\t3987805\t0.0011883731\nAustria\t10594\t9015361\t0.0011751055\nEcuador\t20485\t17688599\t0.0011580906\nGreece\t12024\t10413936\t0.0011546067\nGermany\t96483\t83830972\t0.0011509231\nLebanon\t7718\t6819976\t0.0011316755\nTunisia\t12574\t11839918\t0.0010620006\nIreland\t4960\t4947267\t0.0010025737\nMalta\t421\t441750\t0.0009530277\nSouth Africa\t56363\t59436725\t0.0009482858\nIran\t79741\t84176929\t0.0009473023\nEstonia\t1256\t1326693\t0.0009467149\nJordan\t9436\t10220604\t0.0009232331\nMonaco\t35\t39290\t0.0008908119\nAlbania\t2449\t2877239\t0.0008511632\nRussia\t123498\t145945524\t0.0008461924\nBelize\t325\t398845\t0.0008148529\nSerbia\t6847\t8731081\t0.0007842099\nCosta Rica\t3962\t5102158\t0.0007765342\nIsrael\t6411\t8678517\t0.0007387207\nCanada\t25479\t37799407\t0.0006740582\nHonduras\t6296\t9931333\t0.0006339532\nBahamas\t229\t393893\t0.0005813762\nEswatini\t672\t1162233\t0.0005781973\nTurkey\t47271\t84495243\t0.0005594516\nBahrain\t939\t1711057\t0.0005487836\nSuriname\t288\t587541\t0.0004901786\nGuyana\t382\t787215\t0.0004852550\nAzerbaijan\t4903\t10154978\t0.0004828174\nLibya\t3119\t6887247\t0.0004528660\nGuatemala\t8124\t17971382\t0.0004520520\nOman\t2303\t5128058\t0.0004490979\nDenmark\t2536\t5795780\t0.0004375597\nAntigua and Barbuda\t42\t98069\t0.0004282699\nSaint Lucia\t77\t183774\t0.0004189929\nKuwait\t1764\t4281320\t0.0004120225\nSeychelles\t40\t98453\t0.0004062852\nIraq\t16334\t40372771\t0.0004045796\nBotswana\t831\t2359585\t0.0003521806\nEl Salvador\t2241\t6491923\t0.0003451982\nKyrgyzstan\t2240\t6542426\t0.0003423806\nTrinidad and Tobago\t470\t1400283\t0.0003356464\nDominican Republic\t3628\t10866667\t0.0003338650\nNamibia\t818\t2548663\t0.0003209526\nJamaica\t942\t2963429\t0.0003178750\nCyprus\t369\t1208886\t0.0003052397\nBelarus\t2831\t9448772\t0.0002996157\nMaldives\t157\t542151\t0.0002895872\nMorocco\t9138\t36985624\t0.0002470690\nNepal\t7163\t29225196\t0.0002450967\nIndia\t333723\t1382345085\t0.0002414180\nSaudi Arabia\t7334\t34905942\t0.0002101075\nQatar\t554\t2889284\t0.0001917430\nPhilippines\t20724\t109830324\t0.0001886911\nIndonesia\t50262\t274021604\t0.0001834235\nKazakhstan\t3443\t18815231\t0.0001829900\nFinland\t959\t5542237\t0.0001730348\nUnited Arab Emirates\t1673\t9910892\t0.0001688042\nComoros\t146\t872695\t0.0001672979\nBarbados\t47\t287437\t0.0001635141\nDjibouti\t153\t990447\t0.0001544757\nLesotho\t326\t2145194\t0.0001519676\nEgypt\t15001\t102659126\t0.0001461244\nNorway\t783\t5428594\t0.0001442362\nJapan\t13763\t126407422\t0.0001088781\nZimbabwe\t1594\t14899771\t0.0001069815\nPakistan\t22994\t221612785\t0.0001037576\nIceland\t35\t341628\t0.0001024506\nSyria\t1763\t17571053\t0.0001003355\nMauritania\t463\t4669775\t0.0000991482\nVenezuela\t2621\t28421581\t0.0000922187\nEquatorial Guinea\t118\t1410419\t0.0000836631\nCuba\t944\t11325391\t0.0000833525\nMalaysia\t2650\t32436963\t0.0000816969\nMongolia\t268\t3287242\t0.0000815273\nAlgeria\t3460\t43984569\t0.0000786640\nBangladesh\t12549\t164972348\t0.0000760673\nAfghanistan\t2899\t39074280\t0.0000741920\nGambia\t178\t2427782\t0.0000733180\nZambia\t1276\t18468257\t0.0000690915\nSenegal\t1138\t16816539\t0.0000676715\nGabon\t150\t2234448\t0.0000671307\nSri Lanka\t1363\t21428970\t0.0000636055\nMalawi\t1154\t19211425\t0.0000600684\nSudan\t2600\t44019263\t0.0000590651\nKenya\t3141\t53968739\t0.0000582004\nSomalia\t769\t15965848\t0.0000481653\nCameroon\t1275\t26655083\t0.0000478333\nYemen\t1319\t29935468\t0.0000440614\nSouth Korea\t1957\t51276977\t0.0000381653\nEthiopia\t4143\t115434444\t0.0000358905\nAustralia\t912\t25550683\t0.0000356938\nGuinea-Bissau\t68\t1975718\t0.0000344179\nMadagascar\t829\t27808395\t0.0000298111\nNicaragua\t186\t6638075\t0.0000280202\nHong Kong\t210\t7507523\t0.0000279719\nMozambique\t870\t31398811\t0.0000277081\nRwanda\t352\t13005303\t0.0000270659\nHaiti\t306\t11426356\t0.0000267802\nMali\t517\t20346106\t0.0000254103\nGhana\t784\t31181428\t0.0000251432\nAngola\t760\t33032075\t0.0000230079\nUzbekistan\t688\t33551824\t0.0000205056\nCentral African Republic\t98\t4843954\t0.0000202314\nPapua New Guinea\t163\t8975531\t0.0000181605\nLiberia\t86\t5077411\t0.0000169378\nTogo\t125\t8310934\t0.0000150404\nThailand\t988\t69830779\t0.0000141485\nMauritius\t17\t1272140\t0.0000133633\nGuinea\t161\t13191279\t0.0000122050\nCambodia\t203\t16758448\t0.0000121133\nTimor-Leste\t16\t1322667\t0.0000120968\nChad\t173\t16502877\t0.0000104830\nSouth Sudan\t115\t11216250\t0.0000102530\nNigeria\t2072\t206984347\t0.0000100104\nSierra Leone\t79\t8004158\t0.0000098699\nTajikistan\t91\t9573310\t0.0000095056\nGrenada\t1\t112614\t0.0000088799\nBenin\t101\t12175480\t0.0000082954\nBurkina Faso\t166\t20997293\t0.0000079058\nNiger\t192\t24346468\t0.0000078862\nUganda\t362\t45974931\t0.0000078739\nBrunei\t3\t438202\t0.0000068462\nSingapore\t32\t5858322\t0.0000054623\nNew Zealand\t26\t4829021\t0.0000053841\nFiji\t4\t897573\t0.0000044565\nTaiwan\t100\t23824369\t0.0000041974\nEritrea\t14\t3554797\t0.0000039383\nVanuatu\t1\t308337\t0.0000032432\nMainland China\t4652\t1440297825\t0.0000032299\nMartinique\t1\t375213\t0.0000026652\nBhutan\t1\t773069\t0.0000012935\nBurundi\t6\t11948454\t5.022E-7\nVietnam\t48\t97490013\t4.924E-7\nLaos\t3\t7293542\t4.113E-7\nTanzania\t21\t60012400\t3.499E-7\nKiribati\t0\t119760\t0E-10\nMarshall Islands\t0\t59259\t0E-10\nDominica\t0\t72017\t0E-10\nGuadeloupe\t0\t400136\t0E-10\nSaint Barthelemy\t0\t9882\t0E-10\nPuerto Rico\t0\t2846860\t0E-10\nCayman Islands\t0\t65854\t0E-10\nMayotte\t0\t273905\t0E-10\nGreenland\t0\t56787\t0E-10\nSolomon Islands\t0\t689671\t0E-10\nChannel Islands\t0\t174140\t0E-10\nGibraltar\t0\t33689\t0E-10\nAruba\t0\t106845\t0E-10\nFrench Guiana\t0\t299958\t0E-10\nSamoa\t0\t198643\t0E-10\nMicronesia\t0\t115231\t0E-10\nGuam\t0\t169031\t0E-10\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=8",
+              "$$hashKey": "object:85048"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645128260131_55258527",
+      "id": "paragraph_1645128260131_55258527",
+      "dateCreated": "2022-02-17T14:04:20-0600",
+      "dateStarted": "2022-02-17T16:11:42-0600",
+      "dateFinished": "2022-02-17T16:11:44-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82173"
+    },
+    {
+      "title": "Q10: Total Deaths by Continent",
+      "text": "%sql\nselect * from question10;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:44-0600",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Continent": "string",
+                      "sum(Deaths)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Continent",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "sum(Deaths)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Continent\tsum(Deaths)\nEurope\t1110940\nNorth America\t905546\nSouth America\t816595\nAsia\t799916\nAfrica\t130181\nOceania\t1106\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=41",
+              "$$hashKey": "object:83704"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645128636586_1489795824",
+      "id": "paragraph_1645128636586_1489795824",
+      "dateCreated": "2022-02-17T14:10:36-0600",
+      "dateStarted": "2022-02-17T16:04:44-0600",
+      "dateFinished": "2022-02-17T16:04:45-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82174"
+    },
+    {
+      "title": "Q11",
+      "text": "%sql\nselect * from question11;",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-17T16:04:45-0600",
+      "progress": 5,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": true,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Data": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Data",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Data\tcount\n1\t40501\n2\t27008\n3\t20167\n4\t16025\n5\t13584\n6\t11457\n7\t9839\n8\t8887\n9\t7740\n10\t7325\n11\t6687\n12\t6090\n13\t5383\n14\t5042\n15\t4963\n16\t4397\n17\t4322\n18\t3863\n19\t3824\n20\t3716\n21\t3587\n22\t3231\n23\t3219\n25\t3051\n24\t2994\n27\t2808\n26\t2777\n28\t2759\n29\t2648\n30\t2616\n32\t2496\n31\t2426\n34\t2318\n33\t2299\n35\t2283\n38\t2188\n36\t2096\n37\t2074\n39\t2066\n41\t2054\n40\t2038\n42\t1926\n45\t1869\n44\t1807\n43\t1798\n49\t1756\n48\t1743\n47\t1713\n50\t1707\n46\t1705\n100\t1685\n51\t1658\n53\t1585\n52\t1571\n54\t1521\n101\t1501\n55\t1499\n58\t1477\n56\t1449\n59\t1430\n63\t1408\n102\t1406\n65\t1404\n60\t1404\n57\t1400\n61\t1377\n103\t1373\n64\t1357\n62\t1338\n104\t1334\n67\t1332\n107\t1327\n105\t1322\n69\t1302\n68\t1288\n110\t1278\n115\t1267\n109\t1267\n108\t1267\n75\t1266\n66\t1251\n70\t1241\n112\t1232\n71\t1231\n72\t1216\n106\t1213\n73\t1204\n111\t1192\n81\t1184\n114\t1181\n120\t1169\n77\t1167\n121\t1165\n74\t1160\n113\t1150\n119\t1139\n76\t1137\n79\t1136\n82\t1131\n78\t1129\n85\t1108\n116\t1107\n80\t1100\n127\t1091\n98\t1089\n83\t1084\n89\t1083\n117\t1079\n125\t1075\n118\t1059\n91\t1053\n132\t1042\n86\t1039\n122\t1032\n84\t1030\n130\t1030\n90\t1023\n87\t1015\n124\t1014\n129\t1013\n128\t1012\n88\t1003\n123\t997\n97\t993\n94\t986\n134\t979\n126\t976\n92\t968\n135\t968\n139\t963\n131\t963\n93\t959\n140\t948\n95\t948\n133\t945\n96\t937\n99\t935\n141\t934\n138\t934\n142\t912\n150\t903\n137\t880\n143\t878\n136\t876\n145\t862\n147\t851\n149\t848\n144\t844\n153\t842\n154\t839\n152\t838\n155\t829\n151\t829\n156\t825\n146\t822\n158\t818\n148\t814\n157\t811\n160\t808\n170\t757\n163\t757\n159\t754\n161\t750\n165\t742\n164\t730\n171\t722\n162\t721\n167\t714\n175\t713\n187\t704\n169\t704\n168\t703\n182\t696\n180\t686\n183\t685\n179\t683\n176\t681\n173\t680\n185\t673\n178\t667\n174\t667\n166\t667\n177\t663\n181\t651\n189\t649\n201\t648\n172\t642\n193\t640\n188\t627\n186\t615\n192\t609\n200\t609\n195\t608\n198\t605\n190\t598\n194\t597\n191\t596\n199\t588\n196\t584\n197\t580\n203\t578\n184\t577\n210\t573\n204\t570\n207\t568\n211\t567\n202\t558\n219\t545\n220\t529\n209\t528\n215\t523\n218\t517\n213\t516\n214\t514\n208\t513\n212\t512\n206\t510\n217\t507\n205\t506\n216\t503\n221\t497\n227\t493\n224\t489\n231\t487\n225\t483\n230\t480\n229\t480\n223\t469\n226\t467\n238\t465\n228\t462\n243\t461\n234\t459\n241\t448\n239\t442\n232\t436\n222\t430\n237\t426\n233\t422\n240\t422\n236\t417\n253\t415\n245\t414\n247\t413\n235\t410\n242\t409\n244\t403\n250\t397\n264\t392\n260\t389\n300\t387\n258\t385\n255\t384\n248\t381\n269\t378\n251\t377\n249\t374\n259\t374\n252\t373\n279\t372\n246\t369\n254\t368\n271\t362\n257\t361\n261\t361\n280\t358\n266\t356\n265\t352\n270\t351\n285\t350\n263\t348\n275\t343\n278\t342\n283\t340\n276\t340\n287\t339\n262\t338\n301\t336\n290\t334\n274\t333\n281\t333\n294\t330\n292\t328\n302\t328\n299\t326\n298\t326\n273\t325\n256\t324\n297\t324\n284\t323\n288\t320\n289\t319\n267\t319\n314\t316\n268\t315\n310\t315\n277\t314\n286\t313\n316\t310\n295\t309\n303\t306\n293\t305\n330\t304\n282\t303\n272\t300\n311\t299\n309\t299\n306\t297\n312\t296\n305\t295\n291\t293\n304\t283\n296\t280\n318\t279\n317\t279\n331\t278\n322\t275\n333\t274\n320\t273\n328\t271\n327\t271\n337\t270\n351\t268\n307\t267\n350\t266\n319\t266\n315\t265\n323\t263\n321\t263\n340\t261\n344\t258\n324\t256\n335\t255\n400\t254\n325\t254\n334\t253\n349\t253\n313\t253\n358\t252\n389\t251\n326\t250\n308\t250\n356\t247\n357\t244\n348\t244\n390\t243\n380\t243\n339\t241\n375\t240\n342\t240\n355\t239\n329\t238\n398\t238\n345\t237\n347\t234\n359\t233\n365\t233\n381\t232\n341\t232\n394\t231\n386\t231\n346\t230\n336\t229\n382\t227\n363\t227\n367\t227\n343\t227\n353\t226\n402\t225\n399\t225\n332\t224\n376\t222\n368\t220\n392\t220\n388\t220\n361\t218\n403\t217\n369\t216\n397\t216\n384\t216\n396\t216\n362\t214\n404\t214\n338\t214\n411\t213\n385\t212\n412\t211\n420\t210\n354\t209\n407\t209\n395\t208\n352\t208\n373\t206\n371\t206\n366\t204\n405\t204\n500\t204\n360\t203\n410\t203\n383\t202\n370\t202\n401\t200\n374\t200\n379\t198\n433\t198\n431\t197\n409\t197\n377\t196\n417\t195\n480\t194\n422\t194\n415\t194\n416\t193\n418\t191\n427\t190\n445\t189\n364\t189\n414\t188\n378\t187\n391\t186\n440\t185\n393\t185\n406\t185\n372\t184\n419\t183\n490\t183\n387\t183\n424\t183\n430\t182\n429\t181\n421\t181\n423\t180\n442\t180\n428\t178\n446\t176\n471\t175\n425\t174\n451\t173\n426\t171\n408\t171\n438\t171\n460\t169\n439\t168\n434\t167\n457\t167\n432\t166\n452\t166\n463\t166\n502\t166\n467\t163\n482\t162\n461\t161\n436\t161\n468\t160\n470\t160\n455\t160\n495\t159\n469\t158\n450\t157\n447\t157\n458\t157\n499\t156\n481\t156\n475\t155\n464\t154\n472\t154\n441\t154\n489\t154\n509\t153\n485\t153\n453\t152\n449\t152\n456\t152\n473\t151\n477\t151\n518\t150\n494\t148\n437\t148\n521\t148\n505\t148\n479\t148\n478\t147\n448\t146\n484\t146\n549\t145\n487\t145\n483\t145\n474\t145\n520\t145\n508\t145\n506\t145\n600\t144\n511\t143\n435\t143\n497\t143\n540\t143\n492\t142\n515\t142\n413\t142\n466\t142\n444\t142\n522\t142\n465\t141\n512\t141\n443\t140\n459\t140\n476\t140\n462\t139\n493\t139\n523\t138\n491\t137\n454\t137\n525\t137\n503\t137\n528\t136\n510\t134\n519\t134\n535\t133\n544\t132\n543\t132\n571\t132\n538\t132\n564\t131\n570\t131\n498\t131\n546\t130\n501\t130\n550\t130\n569\t130\n595\t129\n507\t129\n533\t129\n539\t129\n561\t128\n532\t128\n547\t128\n555\t128\n554\t128\n488\t127\n590\t127\n596\t126\n556\t126\n557\t125\n530\t124\n552\t124\n514\t123\n529\t123\n568\t123\n537\t123\n563\t123\n527\t123\n504\t123\n531\t123\n576\t122\n594\t122\n700\t122\n566\t122\n542\t120\n517\t120\n545\t120\n639\t120\n496\t120\n579\t120\n584\t119\n558\t119\n534\t119\n636\t118\n592\t118\n553\t118\n536\t118\n627\t118\n526\t118\n486\t117\n638\t117\n605\t117\n573\t116\n560\t116\n587\t116\n548\t116\n610\t115\n516\t115\n565\t115\n582\t115\n578\t115\n586\t114\n601\t113\n572\t113\n559\t113\n580\t113\n574\t113\n649\t112\n635\t112\n620\t112\n642\t112\n602\t112\n583\t112\n640\t111\n608\t111\n567\t111\n562\t111\n616\t111\n581\t111\n551\t110\n589\t110\n575\t110\n513\t110\n588\t110\n524\t110\n541\t109\n621\t109\n612\t109\n611\t109\n656\t109\n667\t108\n593\t108\n609\t108\n597\t108\n659\t108\n647\t108\n619\t108\n622\t108\n628\t107\n603\t107\n651\t107\n695\t107\n670\t107\n577\t106\n671\t106\n617\t106\n626\t105\n631\t105\n614\t105\n613\t105\n697\t104\n641\t104\n662\t103\n644\t103\n598\t103\n800\t103\n585\t102\n718\t102\n633\t102\n606\t102\n607\t102\n728\t101\n672\t100\n591\t100\n665\t100\n685\t99\n655\t99\n657\t99\n599\t99\n666\t99\n658\t98\n604\t98\n648\t98\n696\t97\n669\t97\n688\t97\n730\t97\n680\t97\n771\t96\n715\t96\n714\t96\n643\t96\n653\t95\n623\t95\n701\t95\n629\t95\n683\t95\n637\t95\n684\t94\n663\t94\n630\t94\n698\t94\n632\t94\n650\t94\n675\t93\n689\t93\n734\t93\n729\t93\n624\t92\n681\t92\n661\t92\n676\t92\n674\t92\n618\t91\n712\t91\n625\t91\n615\t90\n654\t90\n634\t90\n704\t90\n682\t90\n690\t89\n711\t89\n687\t89\n660\t89\n702\t88\n750\t88\n673\t88\n757\t88\n766\t88\n900\t88\n706\t88\n761\t88\n735\t87\n748\t87\n677\t86\n645\t86\n720\t86\n751\t86\n727\t86\n726\t85\n809\t85\n738\t85\n652\t85\n823\t85\n798\t85\n878\t84\n789\t84\n664\t84\n759\t84\n749\t84\n646\t83\n703\t83\n717\t83\n787\t83\n732\t83\n743\t83\n707\t82\n691\t82\n710\t82\n812\t82\n746\t82\n668\t81\n692\t81\n772\t81\n679\t81\n796\t81\n694\t81\n795\t81\n801\t81\n770\t81\n731\t81\n699\t80\n722\t80\n758\t80\n724\t80\n792\t80\n843\t80\n802\t80\n870\t79\n753\t79\n723\t79\n708\t79\n822\t79\n919\t79\n760\t79\n721\t79\n815\t78\n865\t78\n799\t78\n736\t78\n879\t78\n716\t78\n733\t78\n741\t78\n872\t77\n740\t77\n745\t77\n709\t76\n836\t76\n719\t76\n705\t76\n774\t75\n873\t75\n777\t75\n841\t75\n775\t75\n807\t75\n847\t75\n693\t74\n876\t74\n764\t74\n783\t74\n737\t74\n840\t74\n877\t74\n744\t74\n845\t73\n773\t73\n778\t73\n930\t73\n820\t73\n816\t73\n838\t73\n883\t73\n806\t73\n755\t72\n779\t72\n752\t72\n864\t72\n832\t72\n915\t72\n831\t72\n804\t72\n762\t71\n739\t71\n817\t71\n890\t71\n851\t71\n742\t71\n810\t71\n785\t71\n850\t70\n765\t70\n837\t70\n827\t70\n903\t70\n932\t70\n819\t69\n989\t69\n713\t69\n918\t69\n905\t69\n892\t69\n797\t69\n805\t69\n780\t69\n791\t69\n908\t69\n902\t69\n754\t68\n853\t68\n803\t68\n942\t68\n686\t68\n868\t68\n925\t68\n885\t67\n830\t67\n763\t67\n782\t67\n897\t67\n808\t67\n788\t67\n923\t66\n854\t66\n861\t66\n952\t66\n794\t66\n756\t66\n882\t66\n875\t66\n793\t66\n891\t65\n768\t65\n894\t65\n899\t65\n821\t65\n926\t65\n786\t65\n859\t65\n871\t65\n776\t64\n984\t64\n867\t64\n995\t64\n747\t64\n852\t64\n862\t64\n922\t63\n839\t63\n825\t63\n968\t63\n912\t63\n970\t62\n678\t62\n860\t62\n913\t62\n828\t62\n829\t62\n790\t62\n824\t62\n833\t61\n767\t61\n881\t61\n957\t61\n889\t61\n811\t61\n863\t61\n961\t60\n866\t60\n884\t60\n781\t60\n887\t60\n886\t60\n985\t60\n958\t60\n813\t59\n784\t59\n980\t59\n725\t59\n769\t59\n940\t58\n869\t58\n963\t58\n956\t58\n814\t58\n818\t57\n857\t57\n953\t57\n959\t57\n933\t57\n972\t57\n951\t57\n906\t57\n874\t57\n937\t57\n835\t57\n944\t57\n910\t56\n880\t56\n986\t56\n834\t56\n849\t56\n924\t56\n992\t56\n855\t56\n896\t56\n955\t56\n888\t56\n988\t56\n978\t55\n858\t55\n928\t55\n916\t55\n911\t55\n947\t55\n977\t55\n931\t55\n996\t55\n901\t55\n973\t54\n945\t54\n974\t54\n844\t54\n846\t53\n904\t53\n960\t52\n907\t52\n948\t52\n842\t52\n927\t52\n981\t52\n914\t52\n848\t52\n856\t52\n941\t52\n999\t51\n895\t51\n976\t51\n979\t51\n964\t51\n966\t50\n962\t50\n983\t50\n950\t50\n938\t50\n969\t50\n998\t49\n994\t49\n990\t49\n967\t49\n935\t48\n965\t47\n909\t47\n934\t47\n943\t47\n917\t47\n826\t46\n920\t46\n946\t46\n898\t46\n997\t45\n893\t45\n982\t44\n954\t44\n921\t43\n939\t43\n971\t43\n975\t43\n949\t43\n991\t42\n993\t42\n987\t40\n929\t39\n936\t35\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.1.200:4040/jobs/job?id=42",
+              "$$hashKey": "object:83800"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1645128692758_1039257247",
+      "id": "paragraph_1645128692758_1039257247",
+      "dateCreated": "2022-02-17T14:11:32-0600",
+      "dateStarted": "2022-02-17T16:04:45-0600",
+      "dateFinished": "2022-02-17T16:04:50-0600",
+      "status": "FINISHED",
+      "$$hashKey": "object:82175"
+    }
+  ],
+  "name": "Project2Python",
+  "id": "2GV7BZMGP",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Project2Python"
+}
