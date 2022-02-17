@@ -10,16 +10,20 @@ from pyspark.sql.types import DecimalType
 class QueryLoader:
     def __init__(self):
         logging.getLogger().setLevel(logging.INFO)
-        self._covid_data = self.initialize_data()
-        self._max_deaths = self._covid_data.select(f.col("Country/Region"), f.col("Deaths").cast("Int"))
-        self._pop_data = self.get_spark_session().read.option("header", "true") \
+        self.covid_data = self.initialize_data()
+        self.max_deaths = self.covid_data.select(f.col("Country/Region"), f.col("Deaths").cast("Int"))\
+            .groupBy("Country/Region").sum("Deaths")
+        self.pop_data = self.get_spark_session().read.option("header", "true") \
             .csv("data/population_by_country_2020.csv")
-        self._death_join_pop = self._max_deaths.join(self._pop_data, self._covid_data["Country/Region"].
-                                                     __eq__(self._pop_data["Country"]), "inner")
-        self._country_by_months = self.country_by_month()
-        self._monthly_data = self.get_monthly()
-        self._continent = self.get_spark_session().read.option("header", "true").csv("data/continents.csv")
-        self._covid_continents = self._covid_data.join(self._continent, "Country/Region")
+        self.death_join_pop = self.max_deaths.join(self.pop_data, self.covid_data["Country/Region"] ==
+                                                   self.pop_data["Country"], "inner").select(f.col("Country"),
+                                                                                             f.col("sum(Deaths)"),
+                                                                                             f.col("Population")
+                                                                                             .cast("Int"))
+        self.country_by_months = self.country_by_month()
+        self.monthly_data = self.get_monthly()
+        self.continent = self.get_spark_session().read.option("header", "true").csv("data/continents.csv")
+        self.covid_continents = self.covid_data.join(self.continent, "Country/Region")
 
     def load_query(self, question: int) -> DataFrame:
         start_time = datetime.datetime.now()
@@ -54,29 +58,29 @@ class QueryLoader:
         return SparkSession.builder.appName("Covid Analyze App").master("local[*]").getOrCreate()
 
     def question01(self) -> DataFrame:
-        return self._monthly_data.select("Date", "Mortality Rate", "Spread Rate", "Difference").orderBy("Date")
+        return self.monthly_data.select("Date", "Mortality Rate", "Spread Rate", "Difference").orderBy("Date")
 
     def question02(self) -> DataFrame:
-        return self._monthly_data
+        return self.monthly_data
 
     def question03(self) -> DataFrame:
-        return self._monthly_data.select("Date", "Confirmed", "Deaths", "Recovered").orderBy("Date")
+        return self.monthly_data.select("Date", "Confirmed", "Deaths", "Recovered").orderBy("Date")
 
     def question04(self) -> DataFrame:
-        return self._monthly_data.select("Date", "`Mortality Rate`").withColumn("Mortality Rate",
-                                                                                f.round(f.col("Mortality Rate") *
-                                                                                        100, 2)).orderBy("Date")
+        return self.monthly_data.select("Date", "`Mortality Rate`").withColumn("Mortality Rate",
+                                                                               f.round(f.col("Mortality Rate") *
+                                                                                       100, 2)).orderBy("Date")
 
     def question05(self) -> DataFrame:
-        return self._country_by_months.withColumn("Deaths", f.col("Deaths").cast("Int")).groupBy("Country/Region") \
+        return self.country_by_months.withColumn("Deaths", f.col("Deaths").cast("Int")).groupBy("Country/Region") \
             .sum("Deaths").orderBy(f.col("sum(Deaths)").desc()).limit(10)
 
     def question06(self) -> DataFrame:
-        return self._country_by_months.withColumn("Deaths", f.col("Deaths").cast("Int")).groupBy("Country/Region") \
+        return self.country_by_months.withColumn("Deaths", f.col("Deaths").cast("Int")).groupBy("Country/Region") \
             .sum("Deaths").orderBy(f.col("sum(Deaths)").asc()).filter(f.col("sum(Deaths)").isNotNull())
 
     def question07(self) -> DataFrame:
-        df = self._covid_data.select(
+        df = self.covid_data.select(
             f.col("Date"),
             f.col("Country/Region"),
             f.col("Confirmed").cast("long")
@@ -85,7 +89,7 @@ class QueryLoader:
             .withColumnRenamed("sum(Confirmed)", "Confirmed").withColumn("Difference",
                                                                          f.coalesce(
                                                                              f.col("Confirmed") - f.lag("Confirmed",
-                                                                                                           1).over(
+                                                                                                        1).over(
                                                                                  Window.partitionBy().orderBy("Date")),
                                                                              f.col("Confirmed"))).na.fill(
             0).withColumn("DayOfWeek",
@@ -93,40 +97,38 @@ class QueryLoader:
             .withColumn("DayOfWeek", f.date_format(f.col("DayOfWeek"), "E")).filter(f.col("Date").isNotNull())
 
     def question08(self) -> DataFrame:
-        death_continents = self._death_join_pop.join(self._continent,
-                                                     self._death_join_pop["Country"].__eq__(
-                                                         self._continent["Country/Region"])).drop("Country/Region")
-        sum_deaths = death_continents.groupBy("Deaths").sum("Deaths")
-        death_continents = death_continents.join(sum_deaths, "Deaths", "inner")
-        modified = death_continents.withColumn("sum(Deaths)", f.log("sum(Deaths)")).withColumn("Population",
-                                                                                               f.log("Population"))
-        print("Correlation Value: ", modified.stat.corr("Population", "sum(Deaths)"))
+        death_continents = self.death_join_pop.join(self.continent,
+                                                    self.death_join_pop["Country"] == self.continent["Country/Region"])\
+            .drop("Country/Region")
+        modified = death_continents.withColumn("sum(Deaths)", f.log("sum(Deaths)")) \
+            .withColumn("Population", f.log("Population"))
+        print("Correlation Value: " + str(modified.stat.corr("Population", "sum(Deaths)")))
         return modified.sort(f.col("Population").desc_nulls_last()).filter(f.col("sum(Deaths)").isNotNull())
 
     def question09(self) -> DataFrame:
-        death_capita = self._death_join_pop.withColumn("deaths_per_capita", ("sum(Deaths)" / f.col("Population"))
-                                                       .cast(DecimalType(10, 10)))
+        death_capita = self.death_join_pop.withColumn("deaths_per_capita", ("sum(Deaths)" / f.col("Population"))
+                                                      .cast(DecimalType(10, 10)))
         return death_capita.sort(f.col("deaths_per_capita").desc_nulls_last())
 
     def question10(self) -> DataFrame:
-        return self._covid_continents.groupBy(f.col("Continent")).sum("Deaths").select(f.col("Continent"),
-                                                                                          f.col("sum(Deaths)")) \
+        return self.covid_continents.groupBy(f.col("Continent")).sum("Deaths").select(f.col("Continent"),
+                                                                                      f.col("sum(Deaths)")) \
             .orderBy(f.col("sum(Deaths)").desc())
 
     def question11(self) -> DataFrame:
-        d1 = self._covid_data.select(f.col("Deaths").alias("Data"))
-        d2 = self._covid_data.select(f.col("Confirmed").alias("Data"))
-        d3 = self._covid_data.select(f.col("Recovered").alias("Data"))
+        d1 = self.covid_data.select(f.col("Deaths").alias("Data"))
+        d2 = self.covid_data.select(f.col("Confirmed").alias("Data"))
+        d3 = self.covid_data.select(f.col("Recovered").alias("Data"))
         all_data = d1.union(d2).union(d3)
         return all_data.filter(f.col("Data").isNotNull()).filter(f.col("Data") > 0).withColumn("Data",
-                                                                                                     f.col("Data")
-                                                                                                     .cast("string")
-                                                                                                     .substr(0, 3)
-                                                                                                     .cast("long")) \
+                                                                                               f.col("Data")
+                                                                                               .cast("string")
+                                                                                               .substr(0, 3)
+                                                                                               .cast("long")) \
             .groupBy("Data").count().orderBy(f.col("count").desc())
 
     def country_by_month(self) -> DataFrame:
-        n_df = self._covid_data.withColumn("Date", f.date_format(f.col("Date"), "yyyy-MM"))
+        n_df = self.covid_data.withColumn("Date", f.date_format(f.col("Date"), "yyyy-MM"))
         n_df = n_df.groupBy("Country/Region", "Date").sum("Confirmed", "Deaths", "Recovered").orderBy("Date") \
             .filter(f.col("Date").isNotNull())
         return n_df.withColumnRenamed("sum(Deaths)", "Deaths").withColumnRenamed("sum(Confirmed)", "Confirmed") \
@@ -136,8 +138,8 @@ class QueryLoader:
         covid = self.get_spark_session().read.option("header", "true").csv("data/covid_19_data_cleaned.csv")
         months = covid.withColumn("Date", f.to_date(f.col("Date"), "MM/dd/yyyy"))
         months = months.withColumn("Confirmed", f.col("Confirmed").cast("int")).withColumn("Deaths",
-                                                                                              f.col("Deaths")
-                                                                                              .cast("int")) \
+                                                                                           f.col("Deaths")
+                                                                                           .cast("int")) \
             .withColumn("Recovered", f.col("Recovered").cast("int"))
         months = months.groupBy("Date").sum("Confirmed", "Deaths", "Recovered").orderBy(f.col("Date").asc()) \
             .withColumn("Mortality Rate", f.round(f.col("sum(Deaths)") / f.col("sum(Confirmed)"), 3)) \
@@ -156,7 +158,7 @@ class QueryLoader:
                                                           3)).withColumn("Difference",
                                                                          f.coalesce(
                                                                              f.col("Confirmed") - f.lag("Confirmed",
-                                                                                                           1).over(
+                                                                                                        1).over(
                                                                                  Window.partitionBy().orderBy("Date")),
                                                                              f.col("Confirmed"))).na.fill(0)
         months.withColumn("Increase in Cases", f.round((f.col("Difference")) / f.lag("Difference", 1).over(
