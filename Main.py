@@ -1,5 +1,3 @@
-import sys
-
 import QueryLoader as Ql
 
 if __name__ == '__main__':
