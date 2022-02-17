@@ -51,7 +51,7 @@ class QueryLoader:
 
     @staticmethod
     def get_spark_session() -> SparkSession:
-        return SparkSession.builder.appName("Covid Analyze App").master("local[*]").enableHiveSupport().getOrCreate()
+        return SparkSession.builder.appName("Covid Analyze App").master("local[*]").getOrCreate()
 
     def question01(self) -> DataFrame:
         return self._monthly_data.select("Date", "Mortality Rate", "Spread Rate", "Difference").orderBy("Date")
