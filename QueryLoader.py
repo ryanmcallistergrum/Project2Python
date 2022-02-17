@@ -165,7 +165,7 @@ class QueryLoader:
 
     def initialize_data(self) -> DataFrame:
         return self.get_spark_session().read.option("header", "true").csv("data/covid_daily_differences.csv") \
-            .withColumn("Date", f.to_date(f.col("Date"), "MM/dd/yyyy")) \
+            .withColumn("Date", f.to_date(f.col("Date"))) \
             .withColumn("Confirmed", f.col("Confirmed").cast("long")) \
             .withColumn("Confirmed", f.col("Confirmed").cast("int")) \
             .withColumn("Deaths", f.col("Deaths").cast("int")) \
