@@ -1,9 +1,9 @@
-import unittest2
+import unittest
 
 from QueryLoader import QueryLoader
 
 
-class TestQueryLoader(unittest2.TestCase):
+class TestQueryLoader(unittest.TestCase):
     ql = QueryLoader()
 
     def create_query_loader(self):
