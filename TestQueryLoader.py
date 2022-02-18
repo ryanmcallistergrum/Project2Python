@@ -6,7 +6,7 @@ from QueryLoader import QueryLoader
 class TestQueryLoader(unittest.TestCase):
     ql = QueryLoader()
 
-    def create_query_loader(self):
+    def test_query_loader(self):
         self.assertIsNotNone(self.ql)
 
     def test_get_spark_session(self):
